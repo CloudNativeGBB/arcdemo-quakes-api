@@ -14,3 +14,13 @@ jobs:
         dockerfile: Dockerfile
         registry: docker.pkg.github.com
         snapshot: true
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: msftgbb/quakes-api
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        dockerfile: Dockerfile
+        registry: docker.io
+        snapshot: true
